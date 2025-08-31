@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CV — CRISTOPHER ANTONI CATALÁN BARRIENTOS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar" id="topbar">
+    <div class="brand">
+      <div class="logo">CAC</div>
+      <div class="brand-info">
+        <div class="name" id="navName">CRISTOPHER ANTONI CATALÁN BARRIENTOS</div>
+        <div class="roles" id="navRoles">Estudiante de Computación Científica</div>
+      </div>
+    </div>
+
+    <nav class="mainnav" aria-label="Navegación principal">
+      <a href="#perfil">Perfil</a>
+      <a href="#cv">CV</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Proyectos</a>
+      <a href="#publications">Publicaciones</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+
+    <div class="top-actions">
+      <button id="editProfileBtn" class="btn ghost">Editar Perfil</button>
+      <button id="exportPdfBtn" class="btn neon">Imprimir / Exportar PDF</button>
+    </div>
+  </header>
+
+  <main id="app">
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-left">
+        <h1 id="heroName">CRISTOPHER ANTONI CATALÁN BARRIENTOS</h1>
+        <p class="hero-role" id="heroRole">Estudiante de Computación Científica</p>
+        <p id="heroShort" class="hero-short">Estudiante con experiencia práctica en Python, Lua y desarrollo web; interés en IA y Love2D.</p>
+        <div class="hero-ctas">
+          <button id="downloadPdf" class="btn neon">Descargar CV (PDF)</button>
+          <button id="openEditor" class="btn ghost">Editar Perfil</button>
+        </div>
+        <div class="contact-chips" id="heroChips">
+          <!-- Contact chips rendered here -->
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="avatar-ring">
+          <img id="avatarImg" src="assets/avatar.jpg" alt="Avatar" />
+          <div class="neon-ring"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERFIL / RESUMEN -->
+    <section id="perfil" class="card-section">
+      <div class="container">
+        <h2>Perfil / Resumen</h2>
+        <div class="profile-grid">
+          <article class="summary card">
+            <h3>Resumen profesional</h3>
+            <p id="summaryLong">Cargando...</p>
+          </article>
+          <aside class="details card">
+            <h3>Datos clave</h3>
+            <ul id="keyData">
+              <!-- Location, availability, salary... -->
+            </ul>
+            <h4>Links</h4>
+            <ul id="linksList" class="links-list"></ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section id="cv" class="card-section">
+      <div class="container">
+        <h2>Currículum</h2>
+        <div class="cv-controls">
+          <button id="printCvBtn" class="btn neon">Imprimir / Exportar PDF</button>
+          <button id="exportJson" class="btn ghost">Exportar JSON</button>
+          <label class="btn ghost file-label">
+            Importar JSON
+            <input id="importJson" type="file" accept=".json" hidden />
+          </label>
+          <button id="restoreDefault" class="btn warning">Restaurar valores por defecto</button>
+        </div>
+
+        <article class="cv-printable card" id="cvPrintable">
+          <section>
+            <h3>Educación</h3>
+            <div id="educationList"></div>
+          </section>
+
+          <section>
+            <h3>Experiencia</h3>
+            <div id="experienceList">No hay experiencias registradas.</div>
+          </section>
+
+          <section>
+            <h3>Certificaciones</h3>
+            <div id="certificationsList">No hay certificaciones registradas.</div>
+          </section>
+
+          <section>
+            <h3>Idiomas</h3>
+            <div id="languagesList"></div>
+          </section>
+
+          <section>
+            <h3>Voluntariado</h3>
+            <div id="volunteeringList">No hay voluntariado registrado.</div>
+          </section>
+
+          <section>
+            <h3>Publicaciones</h3>
+            <div id="publicationsList">No hay publicaciones registradas.</div>
+          </section>
+
+          <section>
+            <h3>Referencias</h3>
+            <div id="referencesList">No hay referencias registradas.</div>
+          </section>
+
+          <section>
+            <h3>Intereses</h3>
+            <div id="interestsList">No hay intereses registrados.</div>
+          </section>
+
+          <section>
+            <h3>Disponibilidad</h3>
+            <div id="availability">-</div>
+          </section>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="card-section">
+      <div class="container">
+        <h2>Habilidades / Skills</h2>
+        <div id="skillsGrid" class="skills-grid"></div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="card-section">
+      <div class="container">
+        <h2>Proyectos</h2>
+        <div id="projectsGrid" class="projects-grid">No hay proyectos registrados.</div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="card-section">
+      <div class="container">
+        <h2>Publicaciones / Media</h2>
+        <div id="pubsGrid">No hay publicaciones registradas.</div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card-section">
+      <div class="container">
+        <h2>Contacto</h2>
+        <div class="contact-grid">
+          <div class="contact-card card">
+            <h3>Redes y enlaces</h3>
+            <ul id="socialLinks"></ul>
+          </div>
+          <div class="contact-card card">
+            <h3>Enviar mensaje</h3>
+            <form id="contactForm" class="contact-form" novalidate>
+              <label>Nombre
+                <input type="text" id="cname" required />
+              </label>
+              <label>Email
+                <input type="email" id="cemail" required />
+              </label>
+              <label>Mensaje
+                <textarea id="cmessage" rows="4" required></textarea>
+              </label>
+              <div class="form-actions">
+                <button type="submit" class="btn neon">Enviar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="siteFooter">
+    <div class="container">
+      <small>© <span id="footerName">CRISTOPHER ANTONI CATALÁN BARRIENTOS</span> — Diseño Dark Futurista · CV interactivo</small>
+      <div class="footer-actions">
+        <button id="openEditorFooter" class="btn ghost">Editar Perfil</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Skill modal -->
+  <dialog id="skillModal" class="modal">
+    <button class="modal-close" id="closeSkillModal" title="Cerrar">&times;</button>
+    <h3 id="skillTitle">Skill</h3>
+    <p id="skillNotes"></p>
+    <div class="snippet-area">
+      <pre><code id="skillSnippet" class="code-block" spellcheck="false"></code></pre>
+    </div>
+    <div class="modal-actions">
+      <button id="copySnippet" class="btn ghost">Copiar snippet</button>
+      <button id="closeSnippet" class="btn neon">Cerrar</button>
+    </div>
+  </dialog>
+
+  <!-- JSON editor modal -->
+  <dialog id="editorModal" class="editor-modal">
+    <button class="modal-close" id="closeEditor">&times;</button>
+    <h3>Editor de perfil (JSON)</h3>
+    <p class="hint">Edita el JSON del perfil. Guarda para aplicar. Se utiliza <code>localStorage</code> para persistencia local.</p>
+    <textarea id="profileEditor" spellcheck="false" aria-label="Editor JSON"></textarea>
+    <div class="editor-actions">
+      <button id="saveProfile" class="btn neon">Guardar</button>
+      <button id="downloadJson" class="btn ghost">Descargar JSON</button>
+      <button id="cancelEdit" class="btn warning">Cancelar</button>
+    </div>
+  </dialog>
+
+  <!-- Default profile JSON embedded -->
+  <script id="defaultProfile" type="application/json">
+{
+  "meta": {
+    "version": "1.1",
+    "last_modified": "2025-08-31"
+  },
+  "personal": {
+    "name": "CRISTOPHER ANTONI CATALÁN BARRIENTOS",
+    "title": "Estudiante de Computación Científica",
+    "avatar": "assets/avatar.jpg",
+    "location": "Lima, Perú",
+    "email": "cristopher.catalan@unmsm.edu.pe",
+    "phone": "+51 994470178",
+    "website": "https://wiadeuserrant40k.github.io/",
+    "linkedin": "https://www.linkedin.com/in/cristopher-antoni-catalán-barrientos-118338321",
+    "github": "https://github.com/BiosCandJhade",
+    "availability": "En estudio",
+    "relocation": "Por definir",
+    "salary_expectation": "A convenir",
+    "summary_short": "Estudiante de Computación Científica en la UNMSM con experiencia práctica en Python, Lua y desarrollo web; interés en IA y desarrollo de juegos con Love2D.",
+    "summary_long": "Soy estudiante de la carrera de Computación Científica en la UNMSM. Tengo experiencia práctica en desarrollo con Python y Lua, manejo de bases de datos relacionales y NoSQL en niveles básicos y experiencia con frameworks web ligeros como Flask. Interesado en inteligencia artificial aplicada, desarrollo web y proyectos en Love2D."
+  },
+  "education": [
+    {
+      "institution": "Universidad Nacional Mayor de San Marcos (UNMSM)",
+      "degree": "Estudiante de Computación Científica",
+      "start": "2023",
+      "end": "Presente",
+      "description": "Cursando la carrera de Computación Científica. Proyectos académicos en programación, análisis numérico y sistemas."
+    }
+  ],
+  "experience": [],
+  "certifications": [],
+  "languages": [
+    {
+      "lang": "Español",
+      "level": "Nativo"
+    },
+    {
+      "lang": "Inglés",
+      "level": "Básico"
+    }
+  ],
+  "volunteering": [],
+  "publications": [],
+  "references": [],
+  "skills": [
+    {"tech":"Python","level":60,"category":"Backend / Data","notes":"medio: APIs, scripting, ML básico","snippet_hint":"python_fstring"},
+    {"tech":"Lua","level":80,"category":"Scripting / Games","notes":"medio-avanzado: tablas, metatables, Love2D","snippet_hint":"lua_table_iteration"},
+    {"tech":"Java","level":30,"category":"Backend / OOP","notes":"básico","snippet_hint":"java_class_demo"},
+    {"tech":"HTML","level":45,"category":"Frontend","notes":"básico-medio","snippet_hint":"html_structure"},
+    {"tech":"CSS","level":45,"category":"Frontend","notes":"básico-medio: estilos y responsive","snippet_hint":"css_styles"},
+    {"tech":"SQL Oracle","level":30,"category":"Database","notes":"básico","snippet_hint":"sql_prepared_insert"},
+    {"tech":"MySQL","level":30,"category":"Database","notes":"básico","snippet_hint":"sql_prepared_insert"},
+    {"tech":"Microsoft SQL Server","level":30,"category":"Database","notes":"básico","snippet_hint":"sql_prepared_insert"},
+    {"tech":"PostgreSQL","level":30,"category":"Database","notes":"básico","snippet_hint":"sql_prepared_insert"},
+    {"tech":"SQLite","level":60,"category":"Database","notes":"medio: embebido, prototipos","snippet_hint":"sqlite_example"},
+    {"tech":"MongoDB","level":30,"category":"NoSQL","notes":"básico","snippet_hint":"mongodb_example"},
+    {"tech":"Apache Cassandra","level":30,"category":"NoSQL","notes":"básico","snippet_hint":"cassandra_example"},
+    {"tech":"Amazon DynamoDB","level":30,"category":"NoSQL","notes":"básico","snippet_hint":"dynamodb_example"},
+    {"tech":"Redis","level":30,"category":"Caching","notes":"básico","snippet_hint":"redis_example"},
+    {"tech":"Couchbase","level":30,"category":"NoSQL","notes":"básico","snippet_hint":"couchbase_example"},
+    {"tech":"TypeScript","level":30,"category":"Frontend","notes":"básico","snippet_hint":"typescript_example"},
+    {"tech":"Ensamblador","level":30,"category":"Baja-nivel","notes":"básico","snippet_hint":"assembly_example"},
+    {"tech":"C/C++","level":30,"category":"Sistemas","notes":"básico","snippet_hint":"c_cpp_example"},
+    {"tech":"C#","level":30,"category":"General","notes":"básico","snippet_hint":"csharp_example"},
+    {"tech":"Julia","level":30,"category":"Científico","notes":"básico","snippet_hint":"julia_example"},
+    {"tech":"Love2D","level":60,"category":"Games","notes":"medio: gráficos por píxel, prototipos","snippet_hint":"love2d_example"},
+    {"tech":"Kotlin","level":30,"category":"Mobile","notes":"básico","snippet_hint":"kotlin_example"},
+    {"tech":"MATLAB","level":45,"category":"Científico","notes":"básico-medio: cálculo numérico, matrices","snippet_hint":"matlab_example"},
+    {"tech":"Excel","level":45,"category":"Ofimática / Datos","notes":"básico-medio: fórmulas y tablas dinámicas","snippet_hint":"excel_formula"},
+    {"tech":"R","level":30,"category":"Científico","notes":"básico","snippet_hint":"r_example"},
+    {"tech":"Rust","level":30,"category":"Sistemas","notes":"básico","snippet_hint":"rust_example"},
+    {"tech":"Word","level":80,"category":"Ofimática","notes":"medio-avanzado: formato y plantillas","snippet_hint":"word_demo"},
+    {"tech":"PowerPoint","level":60,"category":"Ofimática","notes":"medio: presentaciones avanzadas","snippet_hint":"powerpoint_demo"},
+    {"tech":"Prompt-Engineering","level":60,"category":"IA / Prompting","notes":"medio: creación y refinamiento de prompts","snippet_hint":"prompt_engineering"},
+    {"tech":"PHP","level":30,"category":"Backend","notes":"básico","snippet_hint":"php_example"},
+    {"tech":"Docker","level":30,"category":"DevOps","notes":"básico","snippet_hint":"docker_example"},
+    {"tech":"Visual Basic","level":45,"category":"Ofimática / Legacy","notes":"básico-medio","snippet_hint":"visualbasic_example"},
+    {"tech":"Flask","level":60,"category":"Web","notes":"medio: microframework Python","snippet_hint":"flask_example"},
+    {"tech":"Django","level":45,"category":"Web","notes":"básico-medio: framework Python","snippet_hint":"django_example"},
+    {"tech":"Uso de Herramientas de Inteligencia Artificial","level":60,"category":"IA","notes":"medio: herramientas y prompts","snippet_hint":"ai_tools"},
+    {"tech":"Angular","level":60,"category":"Frontend","notes":"medio","snippet_hint":"angular_example"},
+    {"tech":"React","level":30,"category":"Frontend","notes":"básico","snippet_hint":"react_example"},
+    {"tech":"Git","level":60,"category":"VCS","notes":"medio: branching y PRs","snippet_hint":"git_example"},
+    {"tech":"Linux","level":30,"category":"Sistemas","notes":"básico","snippet_hint":"linux_example"},
+    {"tech":"Cloudflare","level":30,"category":"Infra","notes":"básico","snippet_hint":"cloudflare_example"},
+    {"tech":"AWS","level":30,"category":"Cloud","notes":"básico","snippet_hint":"aws_example"}
+  ],
+  "projects": [],
+  "extras": {
+    "hobbies": [],
+    "awards": [],
+    "social_links": {}
+  }
+}
+  </script>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
