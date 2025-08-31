@@ -50,7 +50,7 @@ function renderHero(){
   document.getElementById('heroRole').textContent = profile.personal.title || '';
   document.getElementById('heroShort').textContent = profile.personal.summary_short || '';
   const avatar = document.getElementById('avatarImg');
-  avatar.src = profile.personal.avatar || 'assets/avatar.jpg';
+  avatar.src = profile.personal.avatar || 'assets/GOLDENCHILD.png';
   avatar.alt = `${profile.personal.name} — avatar`;
   // chips
   const chips = document.getElementById('heroChips');
@@ -586,3 +586,4 @@ document.getElementById('contactForm').addEventListener('submit', (e)=>{
 
 /* ------------------ Init ------------------ */
 renderAll();
+
